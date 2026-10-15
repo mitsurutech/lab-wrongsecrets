@@ -1,0 +1,38 @@
+# Secrets management with OWASP WrongSecrets: an application that hides fake secrets badly on
+# purpose, in its code, its pages and its configuration, for you to find.
+#
+# Your copy of the application is the only thing you may look into, and it is the only thing
+# you can reach: this lab has no way out to the internet, so nothing you try can touch anybody
+# else's machine. Never point a tool at a site you do not own, in a lab or anywhere else.
+#
+# Press Open on the lab's page to see WrongSecrets. Each challenge asks for one secret and
+# turns green when you give it the right one. Start at Challenge 0, which explains the game.
+# Many challenges need things a lab does not have (the project's source on GitHub, a shell
+# inside the container, a cloud account, Vault or Kubernetes, an AI service), so only some can
+# be solved here; the page on GitHub and the manual say which. Secrets you can find with the
+# terminal beside the lab or the browser's developer tools are the ones to start with.
+#
+# Hand in the challenges you solved with a paragraph on each: where the secret was, how you
+# found it, why that place is wrong and where a secret should be kept instead.
+#
+# The application keeps nothing: stopping the lab and starting it again is a fresh game.
+
+services:
+  wrongsecrets:
+    image: jeroenwillemsen/wrongsecrets:1.14.1-no-vault
+    user: "2000"
+    expose: ["8080"]
+    # The image has no health check of its own; this asks the application's own health
+    # address with the wget the image has.
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8080/actuator/health | grep -q UP"]
+      interval: 3s
+      timeout: 5s
+      retries: 60
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    labels:
+      lab.title: OWASP WrongSecrets
+      lab.open: "8080"
