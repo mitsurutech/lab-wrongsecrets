@@ -1,5 +1,7 @@
 # WrongSecrets lab with Docker Compose: practise finding hardcoded secrets and secrets management mistakes with OWASP WrongSecrets
 
+[English](README.md) | [Français](README.fr.md) | [日本語](README.ja.md) | [Español](README.es.md)
+
 [![check](https://github.com/mitsurutech/lab-wrongsecrets/actions/workflows/check.yml/badge.svg)](https://github.com/mitsurutech/lab-wrongsecrets/actions/workflows/check.yml)
 
 A ready-made **secrets management lab** for classrooms, from the [MitsuruTech Learning Platform](https://mitsurutech.co.uk/learning), where schools and colleges give every student their own databases, containers and terminal in the browser. Each student gets their own copy of **OWASP WrongSecrets**, an application that hides fake secrets badly on purpose, in its code, its web pages and its configuration, to practise **finding hardcoded secrets** and then explaining where a secret should have been kept instead. Nothing is installed and nobody else's machine is at risk.
@@ -88,7 +90,11 @@ test/check.sh
 
 [OWASP WrongSecrets](https://github.com/OWASP/wrongsecrets) is licensed under the GNU Affero General Public License v3.0 (AGPL-3.0). The image is `jeroenwillemsen/wrongsecrets` at the tag `1.14.1-no-vault`. It is used here unmodified from its own public image and is not redistributed.
 
-The compose file, the tests and this documentation are MIT licensed, see [LICENSE](LICENSE): copy it, change it, teach with it. The application inside is the licence of its own project, linked above.
+## Licence
+
+This work is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). You may share it and adapt it for learning and teaching, if you credit Mitsuru Technologies Ltd, do not use it commercially, and share anything you make from it under the same licence. The full text is in the `LICENSE` file.
+
+The application inside keeps the licence of its own project, linked above.
 
 ## About
 
